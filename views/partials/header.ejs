@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="images/mylogo.png" />
+    <title>MovieLancer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/main.css">
+
+</head>
+
+<body>
+    <div class="container logo-box">
+
+        <header
+            class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+
+            <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                    <img src="images/Logo.png" alt="photo" id="img">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+            </a>
+
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
+                <li><a href="/movies" class="nav-link px-2 link-dark">Popular Movies</a></li>
+                <li><a href="/Series" class="nav-link px-2 link-dark">Popular Tv Shows</a></li>
+
+                <li><a href="/topMovies" class="nav-link px-2 link-dark">Top Movies</a></li>
+                <li><a href="/TvShows" class="nav-link px-2 link-dark">Top Tv Shows</a></li>
+                <li><a href="/Upcoming" class="nav-link px-2 link-dark">Upcoming</a></li>
+
+            </ul>
+
+            <div class="col-md-3 text-end">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="genreDropdown"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Genres
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="genreDropdown">
+                        <li><a class="dropdown-item" href="#">Coming Soon!</a></li>
+
+                        <!-- Add more genre items here -->
+                    </ul>
+                </div>
+            </div>
+        </header>
+    </div>

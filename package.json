@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "axios": "^1.5.0",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "node-fetch": "^2.7.0",
+    "nodemon": "^3.0.1"
+  },
+  "name": "top-moies",
+  "version": "1.0.0",
+  "description": "Top movies",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lance Kit",
+  "license": "ISC"
+}

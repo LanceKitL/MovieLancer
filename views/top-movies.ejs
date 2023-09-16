@@ -1,0 +1,78 @@
+<%- include("partials/header.ejs")%>
+    <h1 class="py-5">Top Rated Films</h1>
+    <div class="container pb-5">
+        <div class="row">
+            <% movies.forEach(movie=> { %>
+                <div class="col-md-3 mb-4">
+                    <div class="card" id="tooltip">
+                        <img src="<%= 'https://image.tmdb.org/t/p/w500/' + movie.poster_path %>"
+                            class="card-img-top mov-img" alt="<%= movie.title %>">
+                        <div class="card-body d-md-flex justify-content-between rating movie-name-container">
+                            <h6 class="card-title .movie-name" style="text-align: center; font-weight: bold;">
+                                <%= movie.title %>
+                            </h6>
+                            <div class="score">
+                                <span>
+                                    <%=movie.vote_average %>
+                                </span>
+                            </div>
+                        </div>
+                        <span class="tooltiptext">
+                            <h4>Overview</h4>
+                            <span class="desc">
+                                <%= movie.overview %>
+                            </span>
+                        </span>
+
+                    </div>
+                </div>
+                <% }); %>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="pagination-container fixed-bottom d-flex justify-content-center align-items-center">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <% if (pageCount> 1) { %>
+                                <li class="page-item">
+                                    <a class="page-link" href="/topMovies?page=<%= pageCount - 1 %>"
+                                        aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <% } %>
+
+                                    <% const totalPages=50; // Set this to the total number of pages you have %>
+                                        <% const maxVisiblePages=10; // Set the maximum number of visible page numbers
+                                            %>
+
+                                            <% let startPage=Math.max(1, pageCount - Math.floor(maxVisiblePages / 2));
+                                                %>
+                                                <% let endPage=Math.min(totalPages, startPage + maxVisiblePages - 1); %>
+
+                                                    <% if (endPage - startPage < maxVisiblePages - 1) {
+                                                        startPage=Math.max(1, endPage - maxVisiblePages + 1); } %>
+
+                                                        <% for (let i=startPage; i <=endPage; i++) { %>
+                                                            <li
+                                                                class="page-item <%= pageCount === i ? 'active' : '' %>">
+                                                                <a class="page-link" href="/topMovies?page=<%= i %>">
+                                                                    <%= i %>
+                                                                </a>
+                                                            </li>
+                                                            <% } %>
+
+                                                                <li class="page-item">
+                                                                    <a class="page-link"
+                                                                        href="/topMovies?page=<%= pageCount + 1 %>"
+                                                                        aria-label="Next">
+                                                                        <span aria-hidden="true">&raquo;</span>
+                                                                    </a>
+                                                                </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include("partials/footer.ejs")%>

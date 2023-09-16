@@ -1,0 +1,112 @@
+<%- include("partials/header.ejs")%>
+    <h1 class="py-5">Top Rated Series</h1>
+    <div class="container pb-5">
+        <div class="row">
+            <% tvShows.forEach(tvShow=> { %>
+                <div class="col-md-3 mb-4">
+                    <div class="card" id="tooltip">
+                        <img src="<%= 'https://image.tmdb.org/t/p/w500/' + tvShow.poster_path %>"
+                            class="card-img-top imp" alt="<%= tvShow.title %>">
+                        <div class="card-body d-md-flex justify-content-between rating movie-name-container">
+                            <h6 class="card-title movie-name" style="text-align: center; font-weight: bold;">
+                                <%= tvShow.name %>
+                            </h6>
+                            <div class="score">
+                                <span>
+                                    <%=tvShow.vote_average %>
+                                </span>
+                            </div>
+                            <div class="seasons">
+                                <% if (tvShow.numberOfSeasons && tvShow.numberOfEpisodes) { %>
+                                    <% if(tvShow.numberOfSeasons==1) {%>
+                                        <span>
+                                            <%= tvShow.numberOfSeasons %> Season
+                                        </span>
+                                        <% }else{ %>
+                                            <span>
+                                                <%= tvShow.numberOfSeasons %> Seasons
+                                            </span>
+                                            <% } %>
+
+                                                <% } else { %>
+                                                    <span>N/A</span>
+                                                    <% } %>
+                            </div>
+                            <div class="episodes">
+                                <% if (tvShow.numberOfEpisodes) { %>
+
+                                    <span>
+                                        <%= tvShow.numberOfEpisodes %> Episodes
+                                    </span>
+                                    <% } else { %>
+                                        <span>N/A</span>
+                                        <% } %>
+                            </div>
+                        </div>
+                        <span class="tooltiptext">
+                            <h4>Overview</h4>
+                            <span class="desc">
+                                <% if(tvShow !="" ){%>
+                                    <%= tvShow.overview %>
+                                        <% }else{%>
+                                            <span>N/A</span>
+                                            <% } %>
+                            </span>
+                        </span>
+
+                    </div>
+                </div>
+                <% }); %>
+                    <!-- PAGINATION -->
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <div
+                                class="pagination-container fixed-bottom d-flex justify-content-center align-items-center">
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination" id="pagination">
+                                        <% if (pageCount> 1) { %>
+                                            <li class="page-item">
+                                                <a class="page-link" href="/TvShows?page=<%= pageCount - 1 %>"
+                                                    aria-label="Previous">
+                                                    <span aria-hidden="true">&laquo;</span>
+                                                </a>
+                                            </li>
+                                            <% } %>
+
+                                                <!-- Pagination numbers from 1 to 10 -->
+                                                <% const totalPages=50; %>
+                                                    <% const maxVisiblePages=10; %>
+
+                                                        <% let startPage=Math.max(1, pageCount -
+                                                            Math.floor(maxVisiblePages / 2)); %>
+                                                            <% let endPage=Math.min(totalPages, startPage +
+                                                                maxVisiblePages - 1); %>
+
+                                                                <% if (endPage - startPage < maxVisiblePages - 1) {
+                                                                    startPage=Math.max(1, endPage - maxVisiblePages +
+                                                                    1); } %>
+
+                                                                    <% for (let i=startPage; i <=endPage; i++) { %>
+                                                                        <li
+                                                                            class="page-item <%= pageCount === i ? 'active' : '' %>">
+                                                                            <a class="page-link"
+                                                                                href="/TvShows?page=<%= i %>">
+                                                                                <%= i %>
+                                                                            </a>
+                                                                        </li>
+                                                                        <% } %>
+
+                                                                            <li class="page-item">
+                                                                                <a class="page-link"
+                                                                                    href="/TvShows?page=<%= pageCount + 1 %>"
+                                                                                    aria-label="Next">
+                                                                                    <span
+                                                                                        aria-hidden="true">&raquo;</span>
+                                                                                </a>
+                                                                            </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <%- include("partials/footer.ejs")%>

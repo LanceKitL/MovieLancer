@@ -1,0 +1,154 @@
+body {
+    box-sizing: border-box;
+    font-family: arial;
+}
+
+h1 {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+
+}
+
+
+span {
+    font-weight: bold;
+}
+
+#img {
+    height: 160px;
+    width: 190px;
+}
+
+
+.featured {
+    width: 500px;
+    height: 500px;
+    object-fit: contain;
+    border: 1px solid white;
+
+}
+
+.featured-box {
+    background-color: rgba(0, 0, 0, 0.781);
+    padding: 30px;
+}
+
+.align {
+    text-align: center;
+}
+
+
+#tooltip .tooltiptext {
+    opacity: 0;
+    width: 100%;
+    height: 85%;
+    background-color: rgba(0, 0, 0, 0.795);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    right: 0;
+    left: 0;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -1%;
+    /* Initially, position above the image */
+    transition: All 0.3s ease-in-out;
+
+    /* Add a transition for the top property */
+    padding-bottom: 5px;
+    overflow: auto;
+    text-overflow: clip;
+}
+
+#tooltip:hover .tooltiptext {
+    opacity: 100%;
+    top: 0;
+    /* Slide down when hovering */
+}
+
+#tooltip:hover .mov-img {
+    filter: grayscale(100%);
+    transition: All 0.3s ease-in-out;
+}
+
+.desc {
+    font-weight: normal;
+}
+
+
+.score {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.score span {
+    color: white;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.score {
+    background-color: rgba(0, 60, 255, 0.651);
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+.seasons {
+    position: absolute;
+    bottom: 65px;
+    left: 10px;
+}
+
+.seasons span {
+    color: white;
+    font-weight: normal;
+
+    font-size: 12px;
+}
+
+.seasons {
+    background-color: rgba(0, 0, 0, 0.616);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.episodes {
+    position: absolute;
+    bottom: 65px;
+    right: 10px;
+}
+
+.episodes span {
+    color: white;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.episodes {
+    background-color: rgba(0, 0, 0, 0.616);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.movie-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movie-name-container {
+    max-height: 60px;
+    /* Adjust the height as needed */
+    overflow: hidden;
+}
